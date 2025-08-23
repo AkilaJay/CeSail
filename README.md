@@ -4,7 +4,7 @@ A comprehensive web automation and DOM parsing platform with AI-powered agents.
 
 ## Project Overview
 
-CeSail is a comprehensive web automation and DOM parsing platform that transforms complex web pages into structured, agent-friendly data and provides complete web interaction capabilities. It offers APIs that retrieve parsed data from web pages, transform it into a format that's easy for AI agents to understand, and execute actions like clicking, typing, navigating, and scrolling - enabling full end-to-end web automation workflows.
+CeSail enables AI agents to interact with the web through a comprehensive web automation and DOM parsing platform. It transforms complex web pages into structured, agent-friendly data and provides complete web interaction capabilities. The platform offers APIs that retrieve parsed data from web pages, transform it into a format that's easy for AI agents to understand, and execute actions like clicking, typing, navigating, and scrolling - enabling full end-to-end web automation workflows.
 
 ### What CeSail Does
 
@@ -340,6 +340,52 @@ AI-powered web automation agent using LLM for task breakdown and execution.
 **Documentation**: See [simple_agent/README.md](simple_agent/README.md) for more details.
 
 **Usage**: `python3 simple_agent/simple_agent.py`
+
+## Testing
+
+CeSail includes comprehensive test suites to validate functionality and demonstrate capabilities.
+
+### Test Categories
+
+- **Playground Tests** - Integration tests with real websites (Google, Amazon, YouTube, Pinterest, etc.)
+- **Unit Tests** - Individual component testing
+- **Replay Tests** - Regression testing with golden values
+
+### Quick Start
+
+```bash
+# Activate virtual environment
+source venv/bin/activate
+
+# Set PYTHONPATH
+export PYTHONPATH=/Users/rachitapradeep/CeSail:$PYTHONPATH
+
+# Run playground tests (great way to see CeSail in action!)
+pytest dom_parser/tests/playground/test_page_analyzer_integration_pinterest.py -v -s
+
+# Run all tests
+pytest dom_parser/tests/ -v
+```
+
+### Playground Tests
+
+The playground tests are an excellent way to see CeSail navigate through real websites:
+
+- **Google Search**: Navigate and search functionality
+- **Amazon**: Product browsing and search
+- **YouTube**: Video navigation and interaction
+- **Pinterest**: Image browsing and pinning
+- **Airbnb**: Property search and filtering
+- **Google Flights**: Flight search and booking flow
+
+These tests demonstrate CeSail's ability to:
+- Extract interactive elements from complex websites
+- Navigate through multi-step workflows
+- Handle dynamic content and AJAX loading
+- Generate screenshots with bounding boxes
+- Process structured data for AI agents
+
+**Documentation**: See [dom_parser/tests/README.md](dom_parser/tests/README.md) for complete testing guide and examples.
 
 ## Development Installation
 

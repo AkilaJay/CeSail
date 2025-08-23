@@ -34,9 +34,11 @@ except ImportError as e:
 # Import Simple Agent components
 try:
     from simple_agent.simple_agent import SimpleAgent
+    from simple_agent import llm_interface
 except (ImportError, Exception) as e:
     # Handle case where simple_agent is not available or needs API key
     SimpleAgent = None
+    llm_interface = None
     import warnings
     warnings.warn(
         "SimpleAgent is not available. To use it, set OPENAI_API_KEY environment variable "
@@ -50,6 +52,7 @@ __all__ = [
     "Action", "ActionType", # Action system
     "ParsedPage",          # Main data model
     "SimpleAgent",         # AI automation
+    "llm_interface",       # LLM interface utilities
     "fastmcp_server",      # MCP integration
     
     # Version info

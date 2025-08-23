@@ -85,3 +85,55 @@ The JavaScript layer operates as a browser-injected script that:
 - Performance monitoring and profiling
 - Optimized element traversal algorithms
 - Memory-efficient data structures
+
+## Build Process
+
+The JavaScript layer must be built before it can be used by the Python DOM Parser.
+
+### Building the Bundle
+
+```bash
+cd dom_parser/
+npm install  # Installs Rollup and build dependencies
+npm run build
+```
+
+This creates the bundled JavaScript file at `dom_parser/dist/dom-parser.js` which contains:
+- All DOM parsing functions from `src/js/`
+- Element extraction and analysis logic
+- Selector generation and mapping
+- Performance monitoring and caching
+
+### Integration with Python Layer
+
+The Python `DOMParser` automatically injects the built JavaScript bundle into every browser page:
+
+```python
+# The bundle is automatically loaded from:
+bundle_path = Path(__file__).parent.parent / "dist" / "dom-parser.js"
+
+# And injected as an init script:
+await self.context.add_init_script(path=str(self.bundle_path))
+```
+
+### Build Configuration
+
+The JavaScript is built using **Rollup** with the following outputs:
+- **IIFE Bundle** (`dist/dom-parser.js`) - Main bundle for browser injection
+- **ES Module** (`dist/dom-parser.esm.js`) - For modern module systems
+- **UMD Bundle** (`dist/dom-parser.umd.js`) - For Node.js compatibility
+
+### Development Workflow
+
+```bash
+# Watch mode for development
+npm run dev
+
+# Clean and rebuild
+npm run clean && npm run build
+
+# Simple build (alternative)
+npm run build:simple
+```
+
+**Note:** Always rebuild the JavaScript bundle after making changes to files in `src/js/` before testing the Python layer.

@@ -74,7 +74,7 @@ DEFAULT_CONFIG = {
     },
     "global": {
         "bundle_path": None,
-        "enable_console_logging": True,
+        "enable_console_logging": False,
         "log_level": "INFO"
     }
 }

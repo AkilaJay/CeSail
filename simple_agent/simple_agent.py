@@ -6,7 +6,11 @@ from typing import Dict, Any, List
 
 from dom_parser.src.dom_parser import DOMParser as BaseDOMParser
 from dom_parser.src.py.types import Action as UIAction
-from .llm_interface import get_llm_response
+try:
+    from .llm_interface import get_llm_response
+except ImportError:
+    # Fallback for when running the file directly
+    from llm_interface import get_llm_response
 import logging
 
 logger = logging.getLogger(__name__)
