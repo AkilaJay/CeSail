@@ -11,42 +11,44 @@ __version__ = "0.2.0"
 __author__ = "CeSail Contributors"
 __email__ = "ajjayawardane@gmail.com"
 
-# Import core components for public API
+# Import subpackages
+from . import dom_parser
+from . import cesail_mcp
+
+# Import simple_agent with error handling
+try:
+    from . import simple_agent
+except Exception as e:
+    simple_agent = None
+    import warnings
+    warnings.warn(f"SimpleAgent subpackage not available: {e}")
+
+# Public shortcuts
 try:
     from .dom_parser.src.dom_parser import DOMParser
     from .dom_parser.src.py.types import Action, ActionType, ParsedPage
 except ImportError:
-    # Handle case where dom_parser is not available
-    pass
+    DOMParser = None
+    Action = ActionType = ParsedPage = None
 
-# Import MCP server for easy access
 try:
     from .cesail_mcp.fastmcp_server import FastMCP as fastmcp_server
-except ImportError as e:
-    # Handle case where cesail_mcp is not available
+except Exception:
     fastmcp_server = None
-    import warnings
-    warnings.warn(
-        "FastMCP server is not available. This may be due to missing dependencies. "
-        f"Error: {str(e)}"
-    )
 
-# Import Simple Agent components
 try:
     from .simple_agent.simple_agent import SimpleAgent
     from .simple_agent import llm_interface
-except (ImportError, Exception) as e:
-    # Handle case where simple_agent is not available or needs API key
+except Exception:
     SimpleAgent = None
     llm_interface = None
-    import warnings
-    warnings.warn(
-        "SimpleAgent is not available. To use it, set OPENAI_API_KEY environment variable "
-        "or create a .env file with your OpenAI API key. "
-        f"Error: {str(e)}"
-    )
 
 __all__ = [
+    # Subpackages
+    "dom_parser",
+    "cesail_mcp", 
+    "simple_agent",
+    
     # Core API - What 90% of users need
     "DOMParser",           # Main automation class
     "Action", "ActionType", # Action system

@@ -89,7 +89,7 @@ CeSail provides a FastMCP server that enables AI assistants like Cursor to direc
      "mcpServers": {
        "cesail": {
          "command": "python3",
-         "args": ["-m", "cesail_mcp.fastmcp_server"],
+         "args": ["-m", "cesail.cesail_mcp.fastmcp_server"],
          "env": {
            "PYTHONUNBUFFERED": "1"
          },
@@ -110,7 +110,7 @@ CeSail provides a FastMCP server that enables AI assistants like Cursor to direc
 
 3. **Test the FastMCP Server**:
    ```bash
-   python3 -m cesail.mcp.fastmcp_server
+   python3 -m cesail.cesail_mcp.fastmcp_server
    ```
    
    Run this command to ensure the server launches properly. You should see output indicating the server is starting up.
@@ -184,7 +184,7 @@ This transformation makes it possible for AI agents to:
 
 ## Components
 
-### 1. DOM Parser JavaScript Layer (`dom_parser/src/js/`)
+### 1. DOM Parser JavaScript Layer (`cesail/dom_parser/src/js/`)
 Core DOM parsing engine that transforms raw HTML into structured, agent-friendly data.
 
 **Language**: JavaScript  
@@ -230,9 +230,9 @@ Core DOM parsing engine that transforms raw HTML into structured, agent-friendly
 }
 ```
 
-**Documentation**: See [dom_parser/src/js/README.md](dom_parser/src/js/README.md)
+**Documentation**: See [cesail/dom_parser/src/js/README.md](cesail/dom_parser/src/js/README.md)
 
-### 2. DOM Parser Python Layer (`dom_parser/src/py/`)
+### 2. DOM Parser Python Layer (`cesail/dom_parser/src/py/`)
 Orchestration layer that manages browser interactions and provides high-level APIs.
 
 **Language**: Python  
@@ -269,9 +269,9 @@ async with DOMParser() as parser:
     await parser.type("input#email", "user@example.com")
 ```
 
-**Documentation**: See [dom_parser/src/py/README.md](dom_parser/src/py/README.md)
+**Documentation**: See [cesail/dom_parser/src/py/README.md](cesail/dom_parser/src/py/README.md)
 
-### 2. MCP Server (`mcp/`)
+### 2. MCP Server (`cesail/cesail_mcp/`)
 FastMCP server that provides standardized APIs for agents to interact with transformed web data.
 
 **Language**: Python  
@@ -321,12 +321,12 @@ actions_data = [
   ]
  
 
-**Documentation**: See [dom_parser/src/py/README.md](dom_parser/src/py/README.md) for more details about the parsed page data structure.
+**Documentation**: See [cesail/dom_parser/src/py/README.md](cesail/dom_parser/src/py/README.md) for more details about the parsed page data structure.
 ```
 
-**Usage**: `python3 mcp/fastmcp_server.py`
+**Usage**: `python3 -m cesail.cesail_mcp.fastmcp_server`
 
-### 3. Simple Agent (`simple_agent/`) - WIP
+### 3. Simple Agent (`cesail/simple_agent/`) - WIP
 AI-powered web automation agent using LLM for task breakdown and execution.
 
 **Language**: Python  
@@ -337,9 +337,9 @@ AI-powered web automation agent using LLM for task breakdown and execution.
 - Visual analysis with screenshots
 - Interactive execution monitoring
 
-**Documentation**: See [simple_agent/README.md](simple_agent/README.md) for more details.
+**Documentation**: See [cesail/simple_agent/README.md](cesail/simple_agent/README.md) for more details.
 
-**Usage**: `python3 simple_agent/simple_agent.py`
+**Usage**: `python3 -m cesail.simple_agent.simple_agent`
 
 ## Testing
 
@@ -361,10 +361,10 @@ source venv/bin/activate
 export PYTHONPATH=/Users/rachitapradeep/CeSail:$PYTHONPATH
 
 # Run playground tests (great way to see CeSail in action!)
-pytest dom_parser/tests/playground/test_page_analyzer_integration_pinterest.py -v -s
+pytest cesail/dom_parser/tests/playground/test_page_analyzer_integration_pinterest.py -v -s
 
 # Run all tests
-pytest dom_parser/tests/ -v
+pytest cesail/dom_parser/tests/ -v
 ```
 
 ### Playground Tests
@@ -385,7 +385,7 @@ These tests demonstrate CeSail's ability to:
 - Generate screenshots with bounding boxes
 - Process structured data for AI agents
 
-**Documentation**: See [dom_parser/tests/README.md](dom_parser/tests/README.md) for complete testing guide and examples.
+**Documentation**: See [cesail/dom_parser/tests/README.md](cesail/dom_parser/tests/README.md) for complete testing guide and examples.
 
 ## Development Installation
 
@@ -414,7 +414,7 @@ For development or advanced usage:
 
 3. **Set up DOM Parser** (optional):
    ```bash
-   cd dom_parser
+   cd cesail/dom_parser
    npm install
    npm run build
    cd ..
@@ -422,8 +422,8 @@ For development or advanced usage:
 
 4. **Configure environment** (for Simple Agent):
    ```bash
-   # Create .env file in simple_agent/ directory
-   echo "OPENAI_API_KEY=your_openai_api_key_here" > simple_agent/.env
+   # Create .env file in cesail/simple_agent/ directory
+echo "OPENAI_API_KEY=your_openai_api_key_here" > cesail/simple_agent/.env
    ```
 
 5. **Playwright browsers are installed automatically** during package installation.
@@ -460,8 +460,8 @@ playwright install
 For detailed API documentation, see the component-specific README files:
 
 ### DOM Parser APIs
-- **Python Layer**: [dom_parser/src/py/README.md](dom_parser/src/py/README.md) - Complete Python API reference including DOMParser, PageAnalyzer, ActionExecutor, and more
-- **JavaScript Layer**: [dom_parser/src/js/README.md](dom_parser/src/js/README.md) - JavaScript DOM parsing APIs and element extraction functions
+- **Python Layer**: [cesail/dom_parser/src/py/README.md](cesail/dom_parser/src/py/README.md) - Complete Python API reference including DOMParser, PageAnalyzer, ActionExecutor, and more
+- **JavaScript Layer**: [cesail/dom_parser/src/js/README.md](cesail/dom_parser/src/js/README.md) - JavaScript DOM parsing APIs and element extraction functions
 
 ### MCP Server API
 - **FastMCP Integration**: See the MCP server documentation for standardized web automation APIs
@@ -470,7 +470,7 @@ For detailed API documentation, see the component-specific README files:
 ### Simple Agent API (WIP)
 - **Natural Language Processing**: Process user input and execute web automation tasks
 - **LLM Integration**: AI-powered task breakdown and execution
-- **Documentation**: See [simple_agent/README.md](simple_agent/README.md) for current API details
+- **Documentation**: See [cesail/simple_agent/README.md](cesail/simple_agent/README.md) for current API details
 
 ## Contributing
 
@@ -504,16 +504,17 @@ We welcome contributions! Here's how to get started:
 
 ```
 cesail/
-├── dom_parser/              # JavaScript DOM parser
+├── cesail/                  # Python package
+│   ├── dom_parser/          # JavaScript DOM parser
 │   ├── src/                # Source code
 │   ├── dist/               # Built files
 │   ├── tests/              # JavaScript tests
 │   └── README.md           # Component documentation
-├── mcp/                    # FastMCP server
+│   ├── cesail_mcp/         # FastMCP server
 │   ├── fastmcp_server.py   # Main server file
 │   ├── server.py           # Alternative server
 │   └── tests/              # MCP tests
-├── simple_agent/           # AI web automation agent
+│   ├── simple_agent/       # AI web automation agent
 │   ├── simple_agent.py     # Main agent file
 │   ├── llm_interface.py    # LLM integration
 │   └── .env               # Environment variables
