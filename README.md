@@ -29,9 +29,8 @@ The easiest way to get started with CeSail is to install it from PyPI:
 # Install CeSail
 pip install cesail
 
-# Playwright browsers are installed automatically during package installation
-# If you encounter any issues, you can manually install them:
-# playwright install
+# Install Playwright browsers
+playwright install
 ```
 
 ### Simple Example
@@ -77,6 +76,7 @@ CeSail provides a FastMCP server that enables AI assistants like Cursor to direc
 1. **Install CeSail MCP Server**:
    ```bash
    pip install cesail fastmcp
+   playwright install
    ```
 
 2. **Configure MCP Settings**:
