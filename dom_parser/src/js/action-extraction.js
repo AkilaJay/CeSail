@@ -1,203 +1,136 @@
-// Cache for computed styles to avoid repeated calculations
-let styleCache = new WeakMap();
+import { INTERACTIVE_SELECTORS } from './constants';
+import { isVisible, isInteractive, getElementType, isSensitive } from './utility-functions';
+import { getPlaywrightStyleSelector } from './selector-extraction';
 
-// Pre-compile regex patterns
-const INTERACTIVE_TAGS = new Set(['a', 'button', 'input', 'select', 'textarea', 'video', 'audio']);
-const INTERACTIVE_ROLES = new Set(['button', 'link', 'checkbox', 'radio', 'textbox', 'combobox', 'listbox', 'menuitem', 'tab', 'switch', 'slider']);
-const SENSITIVE_ATTRS = new Set(['password', 'credit-card', 'ssn', 'secret', 'token', 'key', 'auth']);
-const SENSITIVE_CLASSES = new Set(['password', 'secret', 'private', 'sensitive', 'auth', 'token', 'key']);
-
-// Batch style reading for better performance
-function getComputedStyles(element) {
-    if (styleCache.has(element)) {
-        return styleCache.get(element);
-    }
-    
-    const styles = window.getComputedStyle(element);
-    const styleInfo = {
-        display: styles.display,
-        visibility: styles.visibility,
-        opacity: parseFloat(styles.opacity),
-        position: styles.position,
-        zIndex: parseInt(styles.zIndex) || 0
+// Function to extract metadata from a container
+function extractContainerMetadata(container) {
+    const metadata = {
+        title: null,
+        price: null,
+        image: null,
+        sku: null,
+        description: null
     };
     
-    styleCache.set(element, styleInfo);
-    return styleInfo;
-}
-
-// Optimized visibility check with caching and early returns
-function isVisible(element) {
-    if (!element || !element.getBoundingClientRect) return false;
+    // Find title/name
+    const titleSelectors = [
+        'h1, h2, h3, [class*="title"], [class*="name"], [itemprop="name"]',
+        '[data-product-title], [data-item-title]',
+        '.product-title, .item-title, .card-title'
+    ];
     
-    const rect = element.getBoundingClientRect();
-    if (rect.width === 0 || rect.height === 0) return false;
-    
-    const styles = getComputedStyles(element);
-    if (styles.display === 'none' || styles.visibility === 'hidden' || styles.opacity === 0) return false;
-    
-    // Check if element is in viewport
-    const viewportHeight = window.innerHeight;
-    const viewportWidth = window.innerWidth;
-    
-    return !(rect.bottom < 0 || rect.top > viewportHeight || rect.right < 0 || rect.left > viewportWidth);
-}
-
-// Optimized element type detection
-function getElementType(element) {
-    const tag = element.tagName.toLowerCase();
-    const role = element.getAttribute('role');
-    const type = element.getAttribute('type');
-    
-    // Check role first (ARIA roles take precedence)
-    if (role) {
-        switch (role.toLowerCase()) {
-            case 'button': return 'BUTTON';
-            case 'link': return 'LINK';
-            case 'checkbox': return 'CHECKBOX';
-            case 'radio': return 'RADIO';
-            case 'switch': return 'TOGGLE';
-            case 'slider': return 'SLIDER';
-            case 'textbox': return 'INPUT';
-            case 'combobox': return 'SELECT';
-            case 'tab': return 'TAB';
-            case 'menuitem': return 'BUTTON';
+    for (const selector of titleSelectors) {
+        const titleEl = container.querySelector(selector);
+        if (titleEl && titleEl.textContent.trim()) {
+            metadata.title = titleEl.textContent.trim();
+            break;
         }
     }
     
-    // Then check tag and type
-    switch (tag) {
-        case 'a': return 'LINK';
-        case 'button': return 'BUTTON';
-        case 'input':
-            switch (type?.toLowerCase()) {
-                case 'checkbox': return 'CHECKBOX';
-                case 'radio': return 'RADIO';
-                case 'range': return 'SLIDER';
-                case 'date': return 'DATEPICKER';
-                case 'file': return 'FILE_INPUT';
-                default: return 'INPUT';
-            }
-        case 'textarea': return 'TEXTAREA';
-        case 'select': return 'SELECT';
-        case 'video': return 'VIDEO';
-        case 'audio': return 'AUDIO';
-        case 'table': return 'TABLE';
-        case 'tr': return 'TABLE_ROW';
-        case 'td':
-        case 'th': return 'TABLE_CELL';
-        case 'form': return 'FORM';
-        case 'svg': return 'SVG';
-        case 'canvas': return 'CANVAS';
-        case 'iframe': return 'IFRAME';
-        default: return 'OTHER';
-    }
-}
-
-// Optimized sensitivity check
-function isSensitive(element) {
-    const attrs = element.attributes;
-    for (let i = 0; i < attrs.length; i++) {
-        const attr = attrs[i].name.toLowerCase();
-        const value = attrs[i].value.toLowerCase();
-        
-        if (SENSITIVE_ATTRS.has(attr) || SENSITIVE_ATTRS.has(value)) {
-            return true;
+    // Find price
+    const priceSelectors = [
+        '[class*="price"], [itemprop="price"], .amount, .cost, .value',
+        '[data-price], [data-cost]',
+        '.product-price, .item-price, .card-price'
+    ];
+    
+    for (const selector of priceSelectors) {
+        const priceEl = container.querySelector(selector);
+        if (priceEl && priceEl.textContent.trim()) {
+            metadata.price = priceEl.textContent.trim();
+            break;
         }
     }
     
-    // Handle both string and DOMTokenList cases for className
-    let classes;
-    if (typeof element.className === 'string') {
-        classes = element.className.toLowerCase().split(' ');
-    } else if (element.classList) {
-        classes = Array.from(element.classList).map(c => c.toLowerCase());
-    } else {
-        classes = [];
+    // Find image
+    const img = container.querySelector('img');
+    if (img) {
+        metadata.image = {
+            src: img.src,
+            alt: img.alt
+        };
     }
     
-    return classes.some(cls => SENSITIVE_CLASSES.has(cls));
-}
-
-// Optimized interactivity check
-function isInteractive(element) {
-    const tag = element.tagName.toLowerCase();
-    const role = element.getAttribute('role');
+    // Find SKU
+    const skuSelectors = [
+        '[data-sku], [data-product-id], [data-item-id]',
+        '[itemprop="sku"]',
+        '.product-sku, .item-sku'
+    ];
     
-    if (INTERACTIVE_TAGS.has(tag)) return true;
-    if (role && INTERACTIVE_ROLES.has(role.toLowerCase())) return true;
-    
-    return element.onclick != null || 
-           element.getAttribute('onclick') != null ||
-           element.getAttribute('tabindex') != null;
-}
-
-// Batch process attributes
-function getAttributes(element) {
-    const attrs = {};
-    const attributes = element.attributes;
-    for (let i = 0; i < attributes.length; i++) {
-        const attr = attributes[i];
-        attrs[attr.name] = attr.value;
+    for (const selector of skuSelectors) {
+        const skuEl = container.querySelector(selector);
+        if (skuEl) {
+            metadata.sku = skuEl.textContent.trim() || skuEl.getAttribute('data-sku') || 
+                          skuEl.getAttribute('data-product-id') || skuEl.getAttribute('data-item-id');
+            break;
+        }
     }
-    return attrs;
+    
+    // Find description
+    const descSelectors = [
+        '[itemprop="description"]',
+        '[data-description]',
+        '.product-description, .item-description'
+    ];
+    
+    for (const selector of descSelectors) {
+        const descEl = container.querySelector(selector);
+        if (descEl && descEl.textContent.trim()) {
+            metadata.description = descEl.textContent.trim();
+            break;
+        }
+    }
+    
+    return metadata;
 }
 
-// Main extraction function with optimizations
-function extractElements() {
-    // Clear caches before starting
-    styleCache = new WeakMap();
-    visibilityCache = new WeakMap();
-    
-    // Initialize result object
-    const result = {
-        meta: extractMetaData(),
-        outline: extractDocumentOutline(),
-        text: extractTextContent(),
-        forms: extractForms(),
-        media: extractMedia(),
-        links: extractLinks(),
-        structuredData: extractStructuredData(),
-        dynamic: extractDynamicState(),
-        actions: [], // Will be populated with interactive elements
-        layout: extractLayoutInfo(),
-        pagination: extractPaginationInfo()
-    };
+export function extractActions() {
 
-    // Process all elements and collect actions
     const processElement = (element) => {
         if (!element || !element.tagName) return null;
-        
+
         // Skip invisible elements early
         if (!isVisible(element)) return null;
-        
+
         const tag = element.tagName.toLowerCase();
         const rect = element.getBoundingClientRect();
         
         // Batch DOM reads
+        const attributesStart = performance.now();
         const attributes = {};
         for (const attr of element.attributes) {
             attributes[attr.name] = attr.value;
         }
-        
+
         const text = element.textContent?.trim() || '';
-        const children = Array.from(element.children).map(processElement).filter(Boolean);
-        
+
         // Check if element is interactive
         const interactive = isInteractive(element);
         const elementType = getElementType(element);
         const sensitive = isSensitive(element);
-        
+
+        // Generate Playwright-style selector
+        let selector = null;
+        try {
+            selector = getPlaywrightStyleSelector(element);
+        } catch (e) {
+            selector = null;
+        }
+
         const elementData = {
             tag,
             attributes,
             text,
-            children,
             rect: {
                 x: rect.x,
                 y: rect.y,
                 width: rect.width,
-                height: rect.height
+                height: rect.height,
+                top: rect.top,
+                left: rect.left,
+                bottom: rect.bottom,
+                right: rect.right
             },
             interactive,
             type: elementType,
@@ -212,24 +145,31 @@ function extractElements() {
                 display: window.getComputedStyle(element).display,
                 visibility: window.getComputedStyle(element).visibility,
                 zIndex: window.getComputedStyle(element).zIndex
-            }
+            },
+            selector,
+            object: element
         };
-
-        // If element is interactive, add to actions
-        if (interactive) {
-            result.actions.push(elementData);
-        }
         
         return elementData;
     };
 
-    // Process the entire document
-    result.elements = processElement(document.documentElement);
-    
-    return result;
+    const foundElements = new Map();
+    for (const selector of INTERACTIVE_SELECTORS) {
+        const elements = document.querySelectorAll(selector);
+        for (const element of elements) {
+            if (isVisible(element) && isInteractive(element)) {
+                const processed = processElement(element);
+                if (processed) {
+                    foundElements.set(element, processed);
+                }
+            }
+        }
+    }
+
+    return foundElements;
 }
 
-function extractMetaData() {
+export function extractMetaData() {
     return {
         url: window.location.href,
         canonical: document.querySelector('link[rel="canonical"]')?.href,
@@ -248,7 +188,7 @@ function extractMetaData() {
     };
 }
 
-function extractDocumentOutline() {
+export function extractDocumentOutline() {
     const outline = [];
     const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
     headings.forEach(heading => {
@@ -261,7 +201,7 @@ function extractDocumentOutline() {
     return outline;
 }
 
-function extractTextContent() {
+export function extractTextContent() {
     const textBlocks = [];
     const paragraphs = document.querySelectorAll('p, blockquote, pre');
     paragraphs.forEach(p => {
@@ -276,7 +216,7 @@ function extractTextContent() {
     return textBlocks;
 }
 
-function extractForms() {
+export function extractForms() {
     const forms = [];
     document.querySelectorAll('form').forEach(form => {
         const fields = [];
@@ -309,11 +249,15 @@ function extractForms() {
     return forms;
 }
 
-function extractMedia() {
+export function extractMedia() {
     const media = [];
     
     // Images
     document.querySelectorAll('img, picture').forEach(img => {
+        let rawSrc = img.src || '';
+        let src = rawSrc.length > 200
+          ? rawSrc.slice(0, 200)  // take only the first 300 chars
+          : rawSrc;
         media.push({
             type: 'image',
             src: img.src,
@@ -326,9 +270,13 @@ function extractMedia() {
     
     // Video/Audio
     document.querySelectorAll('video, audio').forEach(mediaEl => {
+        let rawSrc = mediaEl.src || '';
+        let src = rawSrc.length > 200
+          ? rawSrc.slice(0, 200)  // take only the first 300 chars
+          : rawSrc;
         media.push({
             type: mediaEl.tagName.toLowerCase(),
-            src: mediaEl.src,
+            src: src,
             controls: mediaEl.controls,
             autoplay: mediaEl.autoplay,
             loop: mediaEl.loop,
@@ -339,7 +287,7 @@ function extractMedia() {
     return media;
 }
 
-function extractLinks() {
+export function extractLinks() {
     const links = [];
     document.querySelectorAll('a').forEach(link => {
         if (isVisible(link)) {
@@ -354,7 +302,7 @@ function extractLinks() {
     return links;
 }
 
-function extractStructuredData() {
+export function extractStructuredData() {
     const data = [];
     document.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
         try {
@@ -366,7 +314,7 @@ function extractStructuredData() {
     return data;
 }
 
-function extractDynamicState() {
+export function extractDynamicState() {
     return {
         modals: Array.from(document.querySelectorAll('[role="dialog"], [role="alertdialog"]'))
             .filter(isVisible)
@@ -391,7 +339,7 @@ function extractDynamicState() {
     };
 }
 
-function extractLayoutInfo() {
+export function extractLayoutInfo() {
     const layout = [];
     const sections = document.querySelectorAll('header, nav, main, footer, section, article, aside');
     sections.forEach(section => {
@@ -413,7 +361,7 @@ function extractLayoutInfo() {
     return layout;
 }
 
-function extractPaginationInfo() {
+export function extractPaginationInfo() {
     const pagination = {
         next: document.querySelector('a[rel="next"]')?.href,
         prev: document.querySelector('a[rel="prev"]')?.href,
@@ -426,6 +374,3 @@ function extractPaginationInfo() {
     };
     return pagination;
 }
-
-// Export the function
-window.extractElements = extractElements; 

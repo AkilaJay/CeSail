@@ -1,0 +1,44 @@
+{
+  "actions": {
+    "actions": [
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "1",
+        "attributes": null,
+        "text": null,
+        "importantText": "https://www.iana.org/domains/example",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      }
+    ]
+  },
+  "forms": {
+    "forms": []
+  },
+  "metadata": {
+    "url": "",
+    "canonical": null,
+    "title": "",
+    "meta": {
+      "description": null,
+      "keywords": null,
+      "viewport": null,
+      "og": {
+        "title": null,
+        "description": null,
+        "image": null
+      }
+    },
+    "status": "loading"
+  },
+  "important_elements": {
+    "elements": []
+  }
+}

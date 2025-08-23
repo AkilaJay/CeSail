@@ -1,0 +1,97 @@
+[build-system]
+requires = ["setuptools>=42", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cesail"
+version = "0.1.1"
+description = "A comprehensive web automation and DOM parsing platform with AI-powered agents"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Akila Jayawardane", email = "ajjayawardane@gmail.com"}
+]
+maintainers = [
+    {name = "Akila Jayawardane", email = "ajjayawardane@gmail.com"}
+]
+keywords = ["web-automation", "dom-parser", "ai", "playwright", "mcp", "web-scraping"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Internet :: WWW/HTTP :: Browsers",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "playwright>=1.40.0",
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "pydantic>=2.0.0",
+    "fastmcp>=2.0.0,<3.0.0",
+    "mcp>=1.12.4,<1.13.0",  # Pin to compatible version
+    "openai>=1.0.0",
+    "tenacity>=8.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "black>=22.0.0",
+    "isort>=5.0.0",
+    "mypy>=1.0.0",
+    "flake8>=4.0.0",
+]
+docs = [
+    "sphinx>=4.0.0",
+    "sphinx-rtd-theme>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/cesail"
+Documentation = "https://github.com/yourusername/cesail#readme"
+Repository = "https://github.com/yourusername/cesail"
+Issues = "https://github.com/yourusername/cesail/issues"
+Changelog = "https://github.com/yourusername/cesail/blob/main/CHANGELOG.md"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.md", "*.txt", "*.json", "*.js"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "strict"
+testpaths = ["dom_parser/tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
+
+[tool.black]
+line-length = 100
+target-version = ['py39']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 100
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module = ["playwright.*"]
+ignore_missing_imports = true 

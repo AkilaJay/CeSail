@@ -1,0 +1,974 @@
+{
+  "actions": {
+    "actions": [
+      {
+        "type": "BUTTON",
+        "bbox": null,
+        "selector": "1",
+        "attributes": null,
+        "text": null,
+        "importantText": "All | nav-hamburger-menu | button | Open All Categories Menu | javascript: void(0) | Open All Categories Menu",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "2",
+        "attributes": null,
+        "text": null,
+        "importantText": "0 | Cart | nav-cart | 0 items in cart | /gp/cart/view.html?ref_=nav_cart | 0 items in cart",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "3",
+        "attributes": null,
+        "text": null,
+        "importantText": "nav-logo-sprites | Amazon | /ref=nav_logo | Amazon",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "4",
+        "attributes": null,
+        "text": null,
+        "importantText": "For her | For her | /b/?_encoding=UTF8&node=206207746011&ref_=fashion&enabledRefinements=%5B%7B%22rid%22%3A%22category%22%2C%22value%22%3A%22206210265011%22%2C%22ridType%22%3A%22browse%22%2C%22type%22%3A%22browse%22%7D%5D&pd_rd_w=HfyhQ&content-id=amz",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "5",
+        "attributes": null,
+        "text": null,
+        "importantText": "For him | For him | /b/?_encoding=UTF8&node=206207746011&ref_=fashion&enabledRefinements=%5B%7B%22rid%22%3A%22category%22%2C%22value%22%3A%22206210264011%22%2C%22ridType%22%3A%22browse%22%2C%22type%22%3A%22browse%22%7D%5D&pd_rd_w=HfyhQ&content-id=amz",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "6",
+        "attributes": null,
+        "text": null,
+        "importantText": "For kids | For kids | /b/?_encoding=UTF8&node=206207746011&ref_=fashion&enabledRefinements=%5B%7B%22rid%22%3A%22category%22%2C%22value%22%3A%22206210262011%22%2C%22ridType%22%3A%22browse%22%2C%22type%22%3A%22browse%22%7D%5D&pd_rd_w=HfyhQ&content-id=a",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "7",
+        "attributes": null,
+        "text": null,
+        "importantText": "For teens | For teens | /b/?_encoding=UTF8&node=206207746011&ref_=fashion&enabledRefinements=%5B%7B%22rid%22%3A%22category%22%2C%22value%22%3A%22206289922011%22%2C%22ridType%22%3A%22browse%22%2C%22type%22%3A%22browse%22%7D%5D&pd_rd_w=HfyhQ&content-id",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "8",
+        "attributes": null,
+        "text": null,
+        "importantText": "Apparel | Apparel | /stores/luxury/page/EA4603BD-EFE8-4FDA-B759-D15BBF74D159/?_encoding=UTF8&pd_rd_w=ulKdJ&content-id=amzn1.sym.f41fb885-9cc0-4d19-89a5-e53d8848c482&pf_rd_p=f41fb885-9cc0-4d19-89a5-e53d8848c482&pf_rd_r=Y7BCHBVRRSSA2KXEZ5DA&pd_rd_wg=3y",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "9",
+        "attributes": null,
+        "text": null,
+        "importantText": "Jewelry | Jewelry | /stores/luxury/page/F14F145B-CAEA-454A-9B85-E86AF8606EF4/?_encoding=UTF8&pd_rd_w=ulKdJ&content-id=amzn1.sym.f41fb885-9cc0-4d19-89a5-e53d8848c482&pf_rd_p=f41fb885-9cc0-4d19-89a5-e53d8848c482&pf_rd_r=Y7BCHBVRRSSA2KXEZ5DA&pd_rd_wg=3y",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "10",
+        "attributes": null,
+        "text": null,
+        "importantText": "Handbags | Handbags | /stores/luxury/page/DF5B1DB7-A5B4-4B24-A107-2FB590315ACE/?_encoding=UTF8&pd_rd_w=ulKdJ&content-id=amzn1.sym.f41fb885-9cc0-4d19-89a5-e53d8848c482&pf_rd_p=f41fb885-9cc0-4d19-89a5-e53d8848c482&pf_rd_r=Y7BCHBVRRSSA2KXEZ5DA&pd_rd_wg=",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "11",
+        "attributes": null,
+        "text": null,
+        "importantText": "Shop all | Shop all | /stores/luxury/page/C50E9551-78B7-4F4B-8049-5C0C9E3F407E/?_encoding=UTF8&pd_rd_w=ulKdJ&content-id=amzn1.sym.f41fb885-9cc0-4d19-89a5-e53d8848c482&pf_rd_p=f41fb885-9cc0-4d19-89a5-e53d8848c482&pf_rd_r=Y7BCHBVRRSSA2KXEZ5DA&pd_rd_wg=",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "12",
+        "attributes": null,
+        "text": null,
+        "importantText": "Hosting essentials | Hosting essentials | /stores/page/387D523C-A74A-4F3E-8298-05A0D49C91EC/?_encoding=UTF8&ingress=3&visitId=2e79dbcf-492c-4cef-b6be-878d8319168d&pd_rd_w=uis9D&content-id=amzn1.sym.7b6c26d8-f007-4160-ad02-2e55656b9fc8&pf_rd_p=7b6c26d",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "13",
+        "attributes": null,
+        "text": null,
+        "importantText": "Beauty & personal care | Beauty & personal care | /stores/page/F64927EC-182F-4D33-89C5-76FAA9D5EDA0/?_encoding=UTF8&ingress=3&visitId=2e79dbcf-492c-4cef-b6be-878d8319168d&pd_rd_w=uis9D&content-id=amzn1.sym.7b6c26d8-f007-4160-ad02-2e55656b9fc8&pf_rd_p",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "14",
+        "attributes": null,
+        "text": null,
+        "importantText": "Storage & organization | Storage & organization | /stores/page/431E2126-5483-4748-B5CF-B18C8A62C48A/?_encoding=UTF8&ingress=3&visitId=000f354a-02b5-41bc-844c-0beba892549e&pd_rd_w=uis9D&content-id=amzn1.sym.7b6c26d8-f007-4160-ad02-2e55656b9fc8&pf_rd_p",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "15",
+        "attributes": null,
+        "text": null,
+        "importantText": "Patio & outdoors | Patio & outdoors | /stores/page/293AB4F2-26A4-4A9D-825D-6F10EABA56C9/?_encoding=UTF8&ingress=3&visitId=2e79dbcf-492c-4cef-b6be-878d8319168d&pd_rd_w=uis9D&content-id=amzn1.sym.7b6c26d8-f007-4160-ad02-2e55656b9fc8&pf_rd_p=7b6c26d8-f0",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "BUTTON",
+        "bbox": null,
+        "selector": "16",
+        "attributes": null,
+        "text": null,
+        "importantText": "Delivering to San Jose 95127\n                \n     | nav-global-location-popover-link | button | nav-global-location-data-modal-action",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "BUTTON",
+        "bbox": null,
+        "selector": "17",
+        "attributes": null,
+        "text": null,
+        "importantText": "Expand to Change Language or Country | Expand to Change Language or Country",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "BUTTON",
+        "bbox": null,
+        "selector": "18",
+        "attributes": null,
+        "text": null,
+        "importantText": "Expand Account and Lists | Expand Account and Lists",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "BUTTON",
+        "bbox": null,
+        "selector": "19",
+        "attributes": null,
+        "text": null,
+        "importantText": "Medical Care Details | Medical Care Details",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "BUTTON",
+        "bbox": null,
+        "selector": "20",
+        "attributes": null,
+        "text": null,
+        "importantText": "Groceries Details | Groceries Details",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "21",
+        "attributes": null,
+        "text": null,
+        "importantText": "EN | United States | Choose a language for shopping in Amazon United States. The current selection is English (EN).\n | /customer-preferences/edit?ie=UTF8&preferencesReturnUrl=%2F&ref_=topnav_lang | Choose a language for shopping in Amazon United Stat",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "22",
+        "attributes": null,
+        "text": null,
+        "importantText": "New to Amazon? Start here to create an account | https://www.amazon.com/ap/register?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2F%3F_encoding%3DUTF8%26ref_%3Dnav_custrec_newcust&openid.identity=http%3A%2F%2Fspecs.openid.",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "23",
+        "attributes": null,
+        "text": null,
+        "importantText": "Returns | & Orders | nav-orders | /gp/css/order-history?ref_=nav_orders_first",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "BUTTON",
+        "bbox": null,
+        "selector": "24",
+        "attributes": null,
+        "text": null,
+        "importantText": "nav-search-submit-button",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "INPUT",
+        "bbox": null,
+        "selector": "25",
+        "attributes": null,
+        "text": null,
+        "importantText": "twotabsearchtextbox | searchbox | Search Amazon | Search Amazon",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "26",
+        "attributes": null,
+        "text": null,
+        "importantText": "https://www.amazon.com/ap/signin?openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2Fref%3Dgw_sgn_ib%3F_encoding%3DUTF8%26pd_rd_w%3DDBzBq%26content-id%3Damzn1.sym.6ceacd61-907",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "27",
+        "attributes": null,
+        "text": null,
+        "importantText": "Hello, sign in | Account & Lists | https://www.amazon.com/ap/signin?openid.pape.max_auth_age=0&openid.return_to=about%3Ablank%3Fref_%3Dnav_ya_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=us",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "28",
+        "attributes": null,
+        "text": null,
+        "importantText": "/Amazon_Basics?channel=discovbar&field-lbr_brands_browse-bin=AmazonBasics&ref_=nav_cs_amazonbasics",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "29",
+        "attributes": null,
+        "text": null,
+        "importantText": "/gp/new-releases/?ref_=nav_cs_newreleases",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "30",
+        "attributes": null,
+        "text": null,
+        "importantText": "/deals?ref_=nav_cs_gb",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "31",
+        "attributes": null,
+        "text": null,
+        "importantText": "/luxurystores?ref_=nav_cs_luxury_stores_disc",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "32",
+        "attributes": null,
+        "text": null,
+        "importantText": "/haul/store?ref_=nav_cs_hul_disb",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "33",
+        "attributes": null,
+        "text": null,
+        "importantText": "/gp/bestsellers/?ref_=nav_cs_bestsellers",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "34",
+        "attributes": null,
+        "text": null,
+        "importantText": "Medical Care | https://health.amazon.com/prime?ref_=nav_cs_all_health_ingress_onem_h",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "35",
+        "attributes": null,
+        "text": null,
+        "importantText": "Groceries | /fmc/learn-more?ref_=nav_cs_groceries",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "36",
+        "attributes": null,
+        "text": null,
+        "importantText": "Previous slide | #",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "37",
+        "attributes": null,
+        "text": null,
+        "importantText": "Next slide | #",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "LINK",
+        "bbox": null,
+        "selector": "38",
+        "attributes": null,
+        "text": null,
+        "importantText": "Sign in | https://www.amazon.com/ap/signin?openid.pape.max_auth_age=0&openid.return_to=about%3Ablank%3Fref_%3Dnav_custrec_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=usflex&openid.mode=che",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      },
+      {
+        "type": "IFRAME",
+        "bbox": null,
+        "selector": "39",
+        "attributes": null,
+        "text": null,
+        "importantText": "ape_Gateway_right-2_desktop_iframe | https://images-na.ssl-images-amazon.com/images/S/apesafeframe/ape/sf/desktop/sf-1.50.55c856f2.html",
+        "score": null,
+        "tag": null,
+        "rect": null,
+        "interactive": null,
+        "sensitive": null,
+        "role": null,
+        "aria": null,
+        "computedStyle": null
+      }
+    ]
+  },
+  "forms": {
+    "forms": [
+      {
+        "id": "nav-search-bar-form",
+        "action": "",
+        "method": "get",
+        "fields": [
+          {
+            "type": "select-one",
+            "name": "url",
+            "id": "searchDropdownBox",
+            "placeholder": null,
+            "value": "search-alias=aps",
+            "required": false,
+            "pattern": null,
+            "min": null,
+            "max": null,
+            "options": [
+              {
+                "value": "search-alias=aps",
+                "text": "All Departments"
+              },
+              {
+                "value": "search-alias=alexa-skills",
+                "text": "Alexa Skills"
+              },
+              {
+                "value": "search-alias=vehicles",
+                "text": "Amazon Autos"
+              },
+              {
+                "value": "search-alias=amazon-devices",
+                "text": "Amazon Devices"
+              },
+              {
+                "value": "search-alias=amazonfresh",
+                "text": "Amazon Fresh"
+              },
+              {
+                "value": "search-alias=amazon-global-store",
+                "text": "Amazon Global Store"
+              },
+              {
+                "value": "search-alias=bazaar",
+                "text": "Amazon Haul"
+              },
+              {
+                "value": "search-alias=amazon-one-medical",
+                "text": "Amazon One Medical"
+              },
+              {
+                "value": "search-alias=amazon-pharmacy",
+                "text": "Amazon Pharmacy"
+              },
+              {
+                "value": "search-alias=warehouse-deals",
+                "text": "Amazon Resale"
+              },
+              {
+                "value": "search-alias=appliances",
+                "text": "Appliances"
+              },
+              {
+                "value": "search-alias=mobile-apps",
+                "text": "Apps & Games"
+              },
+              {
+                "value": "search-alias=arts-crafts",
+                "text": "Arts, Crafts & Sewing"
+              },
+              {
+                "value": "search-alias=audible",
+                "text": "Audible Books & Originals"
+              },
+              {
+                "value": "search-alias=automotive",
+                "text": "Automotive Parts & Accessories"
+              },
+              {
+                "value": "search-alias=baby-products",
+                "text": "Baby"
+              },
+              {
+                "value": "search-alias=beauty",
+                "text": "Beauty & Personal Care"
+              },
+              {
+                "value": "search-alias=stripbooks",
+                "text": "Books"
+              },
+              {
+                "value": "search-alias=popular",
+                "text": "CDs & Vinyl"
+              },
+              {
+                "value": "search-alias=mobile",
+                "text": "Cell Phones & Accessories"
+              },
+              {
+                "value": "search-alias=fashion",
+                "text": "Clothing, Shoes & Jewelry"
+              },
+              {
+                "value": "search-alias=fashion-womens",
+                "text": "Women's Clothing, Shoes & Jewelry"
+              },
+              {
+                "value": "search-alias=fashion-mens",
+                "text": "Men's Clothing, Shoes & Jewelry"
+              },
+              {
+                "value": "search-alias=fashion-girls",
+                "text": "Girl's Clothing, Shoes & Jewelry"
+              },
+              {
+                "value": "search-alias=fashion-boys",
+                "text": "Boy's Clothing, Shoes & Jewelry"
+              },
+              {
+                "value": "search-alias=fashion-baby",
+                "text": "Baby Clothing, Shoes & Jewelry"
+              },
+              {
+                "value": "search-alias=collectibles",
+                "text": "Collectibles & Fine Art"
+              },
+              {
+                "value": "search-alias=computers",
+                "text": "Computers"
+              },
+              {
+                "value": "search-alias=financial",
+                "text": "Credit and Payment Cards"
+              },
+              {
+                "value": "search-alias=digital-music",
+                "text": "Digital Music"
+              },
+              {
+                "value": "search-alias=electronics",
+                "text": "Electronics"
+              },
+              {
+                "value": "search-alias=foodmaxx",
+                "text": "FoodMaxx"
+              },
+              {
+                "value": "search-alias=lawngarden",
+                "text": "Garden & Outdoor"
+              },
+              {
+                "value": "search-alias=gift-cards",
+                "text": "Gift Cards"
+              },
+              {
+                "value": "search-alias=grocery",
+                "text": "Grocery & Gourmet Food"
+              },
+              {
+                "value": "search-alias=handmade",
+                "text": "Handmade"
+              },
+              {
+                "value": "search-alias=hpc",
+                "text": "Health, Household & Baby Care"
+              },
+              {
+                "value": "search-alias=local-services",
+                "text": "Home & Business Services"
+              },
+              {
+                "value": "search-alias=garden",
+                "text": "Home & Kitchen"
+              },
+              {
+                "value": "search-alias=industrial",
+                "text": "Industrial & Scientific"
+              },
+              {
+                "value": "search-alias=prime-exclusive",
+                "text": "Just for Prime"
+              },
+              {
+                "value": "search-alias=digital-text",
+                "text": "Kindle Store"
+              },
+              {
+                "value": "search-alias=fashion-luggage",
+                "text": "Luggage & Travel Gear"
+              },
+              {
+                "value": "search-alias=luxury",
+                "text": "Luxury Stores"
+              },
+              {
+                "value": "search-alias=magazines",
+                "text": "Magazine Subscriptions"
+              },
+              {
+                "value": "search-alias=movies-tv",
+                "text": "Movies & TV"
+              },
+              {
+                "value": "search-alias=mi",
+                "text": "Musical Instruments"
+              },
+              {
+                "value": "search-alias=office-products",
+                "text": "Office Products"
+              },
+              {
+                "value": "search-alias=petfoodexpress",
+                "text": "Pet Food Express"
+              },
+              {
+                "value": "search-alias=pets",
+                "text": "Pet Supplies"
+              },
+              {
+                "value": "search-alias=luxury-beauty",
+                "text": "Premium Beauty"
+              },
+              {
+                "value": "search-alias=instant-video",
+                "text": "Prime Video"
+              },
+              {
+                "value": "search-alias=samedaystore",
+                "text": "Same-Day Store"
+              },
+              {
+                "value": "search-alias=smart-home",
+                "text": "Smart Home"
+              },
+              {
+                "value": "search-alias=software",
+                "text": "Software"
+              },
+              {
+                "value": "search-alias=sousaswineliquors",
+                "text": "Sousa's Wine & Liquors"
+              },
+              {
+                "value": "search-alias=sporting",
+                "text": "Sports & Outdoors"
+              },
+              {
+                "value": "search-alias=specialty-aps-sns",
+                "text": "Subscribe & Save"
+              },
+              {
+                "value": "search-alias=subscribe-with-amazon",
+                "text": "Subscription Boxes"
+              },
+              {
+                "value": "search-alias=tools",
+                "text": "Tools & Home Improvement"
+              },
+              {
+                "value": "search-alias=toys-and-games",
+                "text": "Toys & Games"
+              },
+              {
+                "value": "search-alias=under-ten-dollars",
+                "text": "Under $10"
+              },
+              {
+                "value": "search-alias=videogames",
+                "text": "Video Games"
+              },
+              {
+                "value": "search-alias=wholefoods",
+                "text": "Whole Foods Market"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "name": "field-keywords",
+            "id": "twotabsearchtextbox",
+            "placeholder": "Search Amazon",
+            "value": "",
+            "required": false,
+            "pattern": "",
+            "min": "",
+            "max": "",
+            "options": null
+          },
+          {
+            "type": "submit",
+            "name": "",
+            "id": "nav-search-submit-button",
+            "placeholder": "",
+            "value": "Go",
+            "required": false,
+            "pattern": "",
+            "min": "",
+            "max": "",
+            "options": null
+          }
+        ],
+        "selector": null
+      },
+      {
+        "id": "",
+        "action": "",
+        "method": "get",
+        "fields": [
+          {
+            "type": "hidden",
+            "name": "ue_back",
+            "id": "",
+            "placeholder": "",
+            "value": "3",
+            "required": false,
+            "pattern": "",
+            "min": "",
+            "max": "",
+            "options": null
+          }
+        ],
+        "selector": null
+      }
+    ]
+  },
+  "metadata": {
+    "url": "",
+    "canonical": null,
+    "title": "",
+    "meta": {
+      "description": null,
+      "keywords": null,
+      "viewport": null,
+      "og": {
+        "title": null,
+        "description": null,
+        "image": null
+      }
+    },
+    "status": "loading"
+  },
+  "important_elements": {
+    "elements": []
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "dom-parser",
+  "version": "1.0.0",
+  "description": "A comprehensive DOM parser for extracting interactive elements and page structure",
+  "type": "module",
+  "main": "dist/dom-parser.js",
+  "module": "dist/dom-parser.esm.js",
+  "exports": {
+    ".": {
+      "import": "./dist/dom-parser.esm.js",
+      "require": "./dist/dom-parser.umd.js"
+    }
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "build:simple": "node build.js",
+    "dev": "rollup -c -w",
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean",
+    "prebuild:simple": "npm run clean"
+  },
+  "keywords": [
+    "dom",
+    "parser",
+    "extraction",
+    "elements",
+    "interactive",
+    "web-scraping"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "^3.28.0",
+    "@rollup/plugin-node-resolve": "^15.2.3"
+  },
+  "files": [
+    "dist/",
+    "src/"
+  ]
+}

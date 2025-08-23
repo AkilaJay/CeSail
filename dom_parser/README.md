@@ -1,135 +1,176 @@
 # DOM Parser
 
-A Python library for parsing and analyzing web pages to generate action graphs. This library helps you understand the structure of web pages and identify possible interactions.
+A comprehensive DOM parser for extracting interactive elements and page structure from web pages.
 
 ## Features
 
-- Parse web pages and extract their structure
-- Identify interactive elements (buttons, links, forms, etc.)
-- Generate possible actions for each interactive element
-- Handle sensitive information (passwords, credit cards, etc.)
-- Async/await support for better performance
-- Type hints for better IDE support
+- **Element Extraction**: Find and analyze interactive elements (buttons, links, forms, etc.)
+- **Text Analysis**: Extract and score important text content
+- **Selector Generation**: Generate robust CSS selectors for elements
+- **Performance Monitoring**: Built-in timing and profiling capabilities
+- **Modular Architecture**: Clean ES module structure for maintainability
 
 ## Installation
 
 ```bash
-pip install dom-parser
-```
-
-## Quick Start
-
-```python
-import asyncio
-from dom_parser.src.graph_generator import GraphGenerator
-
-async def main():
-    # Create a graph generator
-    async with GraphGenerator(headless=True) as generator:
-        # Generate an action graph for a URL
-        action_graph = await generator.generate_graph("https://example.com")
-        
-        # Access the results
-        print(f"Found {len(action_graph.nodes)} elements")
-        print(f"Generated {len(action_graph.edges)} possible actions")
-
-asyncio.run(main())
+npm install dom-parser
 ```
 
 ## Usage
 
-### Basic Usage
+### ES Modules (Recommended)
 
-```python
-from dom_parser.src.graph_generator import GraphGenerator
+```javascript
+import { extractElements } from 'dom-parser';
 
-async def analyze_page(url: str):
-    async with GraphGenerator() as generator:
-        # Generate the action graph
-        action_graph = await generator.generate_graph(url)
-        
-        # Access elements
-        for element in action_graph.nodes:
-            if element.is_interactive:
-                print(f"Found interactive element: {element.tag}")
-        
-        # Access actions
-        for action in action_graph.edges:
-            print(f"Possible action: {action.description}")
-
+// Extract all interactive elements from the current page
+const result = await extractElements();
+console.log(result.actions); // Array of interactive elements
 ```
 
-### Handling Sensitive Information
+### Browser (IIFE Bundle)
 
-The library automatically identifies and handles sensitive information:
+```html
+<script src="dist/dom-parser.bundle.js"></script>
+<script>
+  // Now DOMParserExtract.extractElements is globally available
+  DOMParserExtract.extractElements().then(result => {
+    console.log(result.actions);
+  });
+</script>
+```
 
-- Passwords
-- Email addresses
-- Credit card numbers
-- Phone numbers
-- Social security numbers
+### Browser (ES Module)
 
-Sensitive elements are marked with `is_sensitive=True` and their actions are modified to protect the information.
+```html
+<script type="module">
+  import { extractElements } from '/dist/dom-parser.esm.js';
+  
+  const result = await extractElements();
+  console.log(result.actions);
+</script>
+```
 
 ## API Reference
 
-### GraphGenerator
+### Main Functions
 
-The main class for generating action graphs.
+#### `extractElements()`
+Extracts all interactive elements and page metadata from the current DOM.
 
-```python
-generator = GraphGenerator(headless=True)
-action_graph = await generator.generate_graph(url)
+**Returns:** `Promise<Object>` - Object containing:
+- `actions`: Array of interactive elements
+- `meta`: Page metadata
+- `outline`: Document structure
+- `text`: Text content
+- `forms`: Form information
+- `media`: Media elements
+- `links`: Link elements
+- `importantElements`: Most important elements
+- `logs`: Processing logs
+
+#### `getTopLevelElements()`
+Gets the top-level elements that contain multiple interactive elements.
+
+**Returns:** `Array` - Array of top-level elements
+
+#### `transformTopLevelElements(elements)`
+Transforms raw elements into a structured format with scoring.
+
+**Parameters:**
+- `elements`: Array of elements to transform
+
+**Returns:** `Array` - Transformed elements with scores
+
+### Element Analysis
+
+#### `isVisible(element)`
+Checks if an element is visible on the page.
+
+#### `isInteractive(element)`
+Determines if an element is interactive (clickable, focusable, etc.).
+
+#### `getElementType(element)`
+Gets the type of an element (BUTTON, LINK, INPUT, etc.).
+
+#### `getFastRobustSelector(element)`
+Generates a robust CSS selector for an element.
+
+### Text Extraction
+
+#### `getLabelText(element)`
+Extracts label text for an element from various sources.
+
+#### `crawlDownForText(element, maxDepth)`
+Crawls down the DOM tree to extract text.
+
+#### `crawlUpForText(element, maxDepth)`
+Crawls up the DOM tree to extract text.
+
+### Scoring Functions
+
+#### `scoreElementByAria(element)`
+Scores an element based on its ARIA attributes.
+
+#### `scoreElementByStyle(element)`
+Scores an element based on its computed styles.
+
+#### `scoreElementByAttributes(attributes)`
+Scores an element based on its attributes.
+
+#### `computeImportanceScore(element)`
+Computes an overall importance score for an element.
+
+## Development
+
+### Project Structure
+
+```
+src/
+├── index.js                 # Main entry point
+└── modules/
+    ├── cache-manager.js     # Caching and profiling
+    ├── constants.js         # Constants and configuration
+    ├── element-analysis.js  # Element analysis functions
+    ├── element-scoring.js   # Element scoring functions
+    ├── extraction-functions.js # Content extraction
+    └── utility-functions.js # Utility and helper functions
 ```
 
-### ActionGraph
+### Building
 
-The result of analyzing a page.
+```bash
+# Install dependencies
+npm install
 
-```python
-class ActionGraph:
-    url: str
-    nodes: List[ElementInfo]  # Page elements
-    edges: List[Action]       # Possible actions
-    metadata: Dict[str, Any]  # Additional information
+# Build for production
+npm run build
+
+# Development mode with watch
+npm run dev
 ```
 
-### ElementInfo
+### Build Outputs
 
-Information about a page element.
+- `dist/dom-parser.bundle.js` - IIFE bundle for direct browser use
+- `dist/dom-parser.esm.js` - ES module bundle
+- `dist/dom-parser.umd.js` - UMD bundle for Node.js compatibility
 
-```python
-class ElementInfo:
-    id: str
-    type: ElementType
-    tag: str
-    text: Optional[str]
-    attributes: Dict[str, str]
-    bounding_box: BoundingBox
-    is_visible: bool
-    is_interactive: bool
-    is_sensitive: bool
-    children: List[ElementInfo]
-```
+## Performance
 
-### Action
+The parser includes comprehensive performance monitoring:
 
-A possible interaction with a page element.
+- **Timing Data**: Detailed timing for each processing step
+- **Profiling**: Running averages and statistics
+- **Caching**: Intelligent caching of computed styles and selectors
+- **Tree Shaking**: Unused code is eliminated during bundling
 
-```python
-class Action:
-    type: ActionType
-    element_id: str
-    description: str
-    confidence: float
-    value: Optional[str]
-    metadata: Dict[str, Any]
-```
+## Browser Compatibility
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+- Modern browsers with ES6+ support
+- IE11+ (with polyfills)
+- Node.js 14+
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+MIT
