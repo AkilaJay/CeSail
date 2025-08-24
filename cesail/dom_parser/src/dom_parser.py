@@ -287,3 +287,14 @@ class DOMParser:
         if self._action_executor is None:
             raise RuntimeError("Page not initialized. Call __aenter__() first.")
         return self._action_executor.get_available_actions()
+    
+    def set_action_timeout(self, timeout_ms: int, navigation_timeout_ms: Optional[int] = None) -> None:
+        """Set the default timeout for all Playwright actions.
+        
+        Args:
+            timeout_ms: Timeout for general operations (clicks, typing, etc.)
+            navigation_timeout_ms: Timeout for navigation operations (goto, etc.)
+        """
+        if self._action_executor is None:
+            raise RuntimeError("Page not initialized. Call __aenter__() first.")
+        self._action_executor.set_timeout(timeout_ms, navigation_timeout_ms)

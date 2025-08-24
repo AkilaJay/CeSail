@@ -27,6 +27,15 @@ class ActionExecutor:
         self.page = page
         self.config = config
         self._action_plugins: Dict[ActionType, Type[BaseAction]] = {}
+        
+        # Set default timeout for all Playwright operations
+        default_timeout_ms = self.config.get("default_timeout_ms", 6000)
+        self.page.set_default_timeout(default_timeout_ms)
+        
+        # Set default navigation timeout (separate from general timeout)
+        default_navigation_timeout_ms = self.config.get("default_navigation_timeout_ms", 30000)
+        self.page.set_default_navigation_timeout(default_navigation_timeout_ms)
+        
         self._initialize_action_plugins()
     
     def _initialize_action_plugins(self):
@@ -160,3 +169,17 @@ class ActionExecutor:
         """Execute an action from JSON input."""
         action = Action(**action_json)
         return await self.execute_action(action)
+    
+    def set_timeout(self, timeout_ms: int, navigation_timeout_ms: Optional[int] = None) -> None:
+        """Set the default timeout for all Playwright operations.
+        
+        Args:
+            timeout_ms: Timeout for general operations (clicks, typing, etc.)
+            navigation_timeout_ms: Timeout for navigation operations (goto, etc.)
+        """
+        self.page.set_default_timeout(timeout_ms)
+        self.config["default_timeout_ms"] = timeout_ms
+        
+        if navigation_timeout_ms is not None:
+            self.page.set_default_navigation_timeout(navigation_timeout_ms)
+            self.config["default_navigation_timeout_ms"] = navigation_timeout_ms

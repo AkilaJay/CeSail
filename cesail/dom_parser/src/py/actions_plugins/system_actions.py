@@ -73,7 +73,7 @@ class WaitAction(BaseAction):
     async def execute(self, action: Action) -> Dict[str, Any]:
         try:
             metadata = action.metadata or {}
-            timeout = metadata.get("timeout", 1000)  # Default 1 second
+            timeout = metadata.get("timeout", 6000)  # Default 6 seconds
             
             await self.page.wait_for_timeout(timeout)
             return self._create_success_result(action, timeout=timeout)
@@ -100,7 +100,7 @@ class WaitForSelectorAction(BaseAction):
             metadata = action.metadata or {}
             selector = metadata.get("selector")
             state = metadata.get("state", "visible")
-            timeout = metadata.get("timeout", 30000)  # Default 30 seconds
+            timeout = metadata.get("timeout", 6000)  # Default 6 seconds
             
             if not selector:
                 return self._create_error_result(action, "Selector is required for wait_for_selector")
@@ -134,7 +134,7 @@ class WaitForNavigationAction(BaseAction):
     async def execute(self, action: Action) -> Dict[str, Any]:
         try:
             metadata = action.metadata or {}
-            timeout = metadata.get("timeout", 30000)  # Default 30 seconds
+            timeout = metadata.get("timeout", 6000)  # Default 6 seconds
             
             await self.page.wait_for_load_state("networkidle", timeout=timeout)
             return self._create_success_result(action, timeout=timeout)

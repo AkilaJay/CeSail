@@ -33,6 +33,8 @@ DEFAULT_CONFIG = {
             "alert_accept", "alert_dismiss", "wait", "wait_for_selector", "wait_for_navigation",
             "switch_to_frame", "switch_to_parent_frame", "switch_tab", "close_tab"
         ],
+        "default_timeout_ms": 6000,
+        "default_navigation_timeout_ms": 15000,
     },
     "idle_watcher": {
         "default_idle_time_ms": 300,

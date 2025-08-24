@@ -122,13 +122,13 @@ class PageAnalyzer:
             # Wait for the page to be at least interactive
             await self.page.wait_for_function(
                 'document.readyState === "interactive" || document.readyState === "complete"',
-                timeout=30000
+                timeout=10000
             )
 
             # Call the extractElements function from the global window object with config
             page_data = await asyncio.wait_for(
                 self.page.evaluate(f"() => window.extractElements({json.dumps(self.config)})"),
-                timeout=30.0
+                timeout=10.0
             )
 
             if not page_data:
