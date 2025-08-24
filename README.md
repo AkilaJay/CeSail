@@ -1,23 +1,41 @@
-# CeSail
+# CeSail  
 
-A comprehensive web automation and DOM parsing platform with AI-powered agents.
+🚀 **The AI-native web automation engine** – parse, understand, and act on any website with agent-friendly data.  
 
-## Project Overview
+---
 
-CeSail enables AI agents to interact with the web through a comprehensive web automation and DOM parsing platform. It transforms complex web pages into structured, agent-friendly data and provides complete web interaction capabilities. The platform offers APIs that retrieve parsed data from web pages, transform it into a format that's easy for AI agents to understand, and execute actions like clicking, typing, navigating, and scrolling - enabling full end-to-end web automation workflows.
+## 🌟 Why CeSail?  
 
-### What CeSail Does
+Traditional automation tools like Playwright and Selenium are great at clicking buttons — but terrible at helping **AI agents** understand the *meaning* of web pages.  
 
-CeSail bridges the gap between raw web content and AI agents by:
+CeSail changes that:  
+- It **parses complex DOMs** into clean, structured, JSON-like data.  
+- It **maps semantics** (e.g., “this is a login button”, “this is a price field”).  
+- It **executes actions** (click, type, scroll, navigate) with full end-to-end automation.  
+- It provides **visual feedback** with overlays for debugging and demos.  
 
-> **⚠️ Version Compatibility Note**: CeSail automatically manages compatible versions of `fastmcp` and `mcp` packages. If you encounter import errors related to `McpError`, ensure you're using the latest version of CeSail.
+Think of it as the **missing bridge** between the messy web and intelligent AI workflows.  
 
-1. **🌐 Web Page Analysis**: Extracts and analyzes DOM elements, forms, buttons, links, and interactive components
-2. **🧠 Agent-Friendly Transformation**: Converts complex HTML structures into structured data with clear semantics
-3. **🎯 Actionable Intelligence**: Identifies clickable elements, form fields, and navigation options with context
-4. **📊 Structured Output**: Provides clean, JSON-like data structures that agents can easily parse and understand
-5. **🔍 Context Preservation**: Maintains relationships between elements and their functional purposes
-6. **📸 Visual Overlays**: Generates screenshots with overlays highlighting parsed action items and interactive elements
+---
+
+## 🎥 Demo  
+
+Here’s CeSail + Cursor MCP in action, searching flights on Expedia:  
+
+[![CeSail Demo - Flight Search on Expedia](https://img.youtube.com/vi/-HuowFyjYPM/0.jpg)](https://youtu.be/-HuowFyjYPM)  
+
+---
+
+## 🔑 Features  
+
+1. **🌐 Web Page Analysis** – Extracts DOM elements, forms, buttons, and interactive components  
+2. **🧠 Agent-Friendly Parsing** – Converts raw HTML into structured, semantic data  
+3. **🎯 Actionable Intelligence** – Identifies clickable items, input fields, and navigation paths  
+4. **📊 Structured Output** – JSON-like objects that AI can instantly consume  
+5. **🔍 Context Preservation** – Maintains relationships between elements and their purposes  
+6. **📸 Visual Overlays** – Screenshots with highlighted action items  
+
+---
 
 ## Quick Start
 

@@ -7,7 +7,7 @@ This package provides:
 - Simple Agent: AI-powered web automation agent
 """
 
-__version__ = "0.2.1"
+__version__ = "0.2.2"
 __author__ = "CeSail Contributors"
 __email__ = "ajjayawardane@gmail.com"
 
