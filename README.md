@@ -1,3 +1,5 @@
+<meta name="google-site-verification" content="Z0ALED1F7f0tGxKtwGu5fQ7heRMjmW6jZUOXzlgSUNo" />
+
 # CeSail  
 
 🚀 **The AI-native web automation engine** – parse, understand, and act on any website with agent-friendly data.  
