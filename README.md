@@ -1,4 +1,4 @@
-<meta name="google-site-verification" content="Z0ALED1F7f0tGxKtwGu5fQ7heRMjmW6jZUOXzlgSUNo" />
+<meta name="google-site-verification" content="Qwm_GOvY-q0UnNT6S47vIEeR80U-09E3gK6XwOenEdk" />
 
 # CeSail  
 
